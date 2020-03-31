@@ -1,0 +1,37 @@
+
+-------------------------------------------------------- DOCKER CLI --------------------------------------------------------
+
+docker ps                                                       - Lists all running containers
+
+docker stop <ID>                                                - Stops container with ID
+
+docker run -p 8080:8080 michaellennartsson/simpleweb            - Redirects localhost:8080 to port 8080 in container
+
+docker run -it michaellennartsson/simpleweb sh                  - Override start up command and runs shell instead, use "exit" to quit
+
+docker run -it -p 3000:3000 CONTAINER_ID                        - Use it with create-react-app
+
+docker run -it -p 3000:3000 -v /app/node_modules -v pwd:/app CONTAINER_ID - use v flag for hot reload
+
+docker exec -it d4d4840f0473 sh                                 - Start a shell in a running container
+
+docker build -t michaellennartsson/simpleweb:latest .           - Builds and tags the container
+
+docker build -f Dockerfile.dev .                                - if file not named Dockerfile
+
+
+
+------------------------------------------------------- DOCKER COMPOSE -----------------------------------------------------
+
+docker-compose up -d                                            - executes docker compose file, starts up all containers
+
+docker-compose up --build                                       - --build rebuilds the containers
+
+docker-compose down                                             - stops all containers
+
+docker-compose ps                                               - list all running containers from docker-compose.yml file
+
+------------------------------------------------------------ MISC ----------------------------------------------------------
+
+docker-machine ip default                                       - Gets the IP to container, needs to be used if using docker toolbox
+http://192.168.99.100:8080/
